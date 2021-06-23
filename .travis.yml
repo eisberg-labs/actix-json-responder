@@ -1,0 +1,27 @@
+language: rust
+sudo: false
+cache: cargo
+rust:
+  - stable
+  - beta
+
+before_script:
+  - case "$TRAVIS_RUST_VERSION" in nightly*)
+    cargo install clippy;
+    esac
+
+script:
+  - cargo test --all
+  - case "$TRAVIS_RUST_VERSION" in nightly*)
+    cargo clippy -- -D warnings;
+    cd example && cargo clippy -- -D warnings;
+    esac
+
+deploy:
+  provider: script
+  script: cargo publish --token "$CRATES_IO_TOKEN"
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true
+    condition: "$TRAVIS_RUST_VERSION = stable"

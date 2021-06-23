@@ -1,0 +1,11 @@
+[package]
+name = "actix-json-responder-example"
+publish = false
+version = "0.1.0-SNAPSHOT"
+edition = "2018"
+
+[dependencies]
+actix-json-responder = { path = ".." }
+actix-web = { version = "3" }
+serde_json = { version = "1.0" }
+serde = { version = "1", features = ["derive"] }
