@@ -1,17 +1,15 @@
-# Actix Json Responder [![travis-badge][]][travis] [![cargo-badge][]][cargo] [![license-badge][]][license] [![rust-version-badge][]][rust-version]
+# Actix Json Responder [![Continuous Integration](https://github.com/eisberg-labs/actix-json-responder/actions/workflows/ci.yml/badge.svg)](https://github.com/eisberg-labs/actix-json-responder/actions/workflows/ci.yml) [![license-badge][]][license] [![rust-version-badge][]][rust-version]
 
 A procedural macro to reduce json response boilerplate on actix projects.
 
 # Usage
-Prerequisite for this to work is to define actix_web, serde, serde_json dependencies.
-`Error` has to be in context where `JsonResponder` is implemented. Either use `actix_web::Error`
-or implement your own `Error` enum. Simple example shown below:
+Implementing struct has to be serializable. Example shown in tests and below:
 ```rust
 #[macro_use]
 extern crate actix_json_responder;
 
 use serde::Serialize;
-use actix_web::{web, App, HttpServer, Error};
+use actix_web::{web, App, HttpServer};
 
 #[derive(Serialize, JsonResponder, PartialEq)]
 struct HelloStruct {
@@ -38,8 +36,6 @@ Working example is in [example](./example) directory.
 Distributed under the terms of [MIT license](./LICENSE-MIT) and [Apache license](./LICENSE-APACHE).
 
 
-[travis-badge]: https://img.shields.io/travis/eisberg-labs/actix-json-responder/master.svg?style=flat-square
-[travis]: https://travis-ci.org/eisberg-labs/actix-json-responder
 [cargo-badge]: https://img.shields.io/crates/v/actix-json-responder.svg?style=flat-square
 [cargo]: https://crates.io/crates/actix-json-responder
 [license-badge]: https://img.shields.io/badge/license-MIT/Apache--2.0-lightgray.svg?style=flat-square

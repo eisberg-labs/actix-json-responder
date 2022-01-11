@@ -11,14 +11,13 @@ pub fn responder_derive(input: TokenStream) -> TokenStream {
     let struct_name = &ast.ident.to_string();
     let generic_impl = "
     impl actix_web::Responder for {} {
-        type Error = Error;
-        type Future = std::future::Ready<Result<actix_web::HttpResponse, Error>>;
+        type Body = actix_web::body::BoxBody;
 
-        fn respond_to(self, _: &actix_web::HttpRequest) -> Self::Future {
-            let body = serde_json::to_string(&self).unwrap();
-            std::future::ready(Ok(actix_web::HttpResponse::Ok()
-                .content_type(\"application/json\")
-                .body(body)))
+        fn respond_to(self, _: &actix_web::HttpRequest) -> actix_web::HttpResponse<Self::Body> {
+            match serde_json::to_string(&self) {
+                Err(err) => actix_web::HttpResponse::from_error(err),
+                Ok(value) => actix_web::HttpResponse::Ok().content_type(\"application/json\").body(value)
+            }
         }
     }
     ";
