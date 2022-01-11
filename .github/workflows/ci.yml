@@ -1,4 +1,4 @@
-name: Lint
+name: Continuous Integration
 
 on:
   push:
@@ -57,4 +57,3 @@ jobs:
       - uses: actions-rs/cargo@v1
         with:
           command: test
-          args: --all-targets -- -D warnings
