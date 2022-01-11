@@ -1,4 +1,4 @@
-# Actix Json Responder [![travis-badge][]][travis] [![cargo-badge][]][cargo] [![license-badge][]][license] [![rust-version-badge][]][rust-version]
+# Actix Json Responder [![Continuous Integration](https://github.com/eisberg-labs/actix-json-responder/actions/workflows/ci.yml/badge.svg)](https://github.com/eisberg-labs/actix-json-responder/actions/workflows/ci.yml) [![license-badge][]][license] [![rust-version-badge][]][rust-version]
 
 A procedural macro to reduce json response boilerplate on actix projects.
 
@@ -36,8 +36,6 @@ Working example is in [example](./example) directory.
 Distributed under the terms of [MIT license](./LICENSE-MIT) and [Apache license](./LICENSE-APACHE).
 
 
-[travis-badge]: https://img.shields.io/travis/eisberg-labs/actix-json-responder/master.svg?style=flat-square
-[travis]: https://travis-ci.org/eisberg-labs/actix-json-responder
 [cargo-badge]: https://img.shields.io/crates/v/actix-json-responder.svg?style=flat-square
 [cargo]: https://crates.io/crates/actix-json-responder
 [license-badge]: https://img.shields.io/badge/license-MIT/Apache--2.0-lightgray.svg?style=flat-square
