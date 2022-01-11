@@ -3,15 +3,13 @@
 A procedural macro to reduce json response boilerplate on actix projects.
 
 # Usage
-Prerequisite for this to work is to define actix_web, serde, serde_json dependencies.
-`Error` has to be in context where `JsonResponder` is implemented. Either use `actix_web::Error`
-or implement your own `Error` enum. Simple example shown below:
+Implementing struct has to be serializable. Example shown in tests and below:
 ```rust
 #[macro_use]
 extern crate actix_json_responder;
 
 use serde::Serialize;
-use actix_web::{web, App, HttpServer, Error};
+use actix_web::{web, App, HttpServer};
 
 #[derive(Serialize, JsonResponder, PartialEq)]
 struct HelloStruct {
