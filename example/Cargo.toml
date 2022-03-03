@@ -6,6 +6,6 @@ edition = "2018"
 
 [dependencies]
 actix-json-responder = { path = ".." }
-actix-web = { version = "3" }
+actix-web = { version = "4.0.1" }
 serde_json = { version = "1.0" }
 serde = { version = "1", features = ["derive"] }

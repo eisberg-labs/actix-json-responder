@@ -2,10 +2,10 @@
 extern crate actix_json_responder;
 
 use actix_web::body::to_bytes;
-use actix_web::{test, Responder};
+use actix_web::{test, Responder, HttpResponse};
 use serde::Serialize;
 
-#[actix_rt::test]
+#[actix_web::test]
 async fn responder_is_implemented() {
     #[derive(Serialize, PartialEq, JsonResponder)]
     struct TestStruct {
@@ -17,11 +17,9 @@ async fn responder_is_implemented() {
         name: "Test".to_string(),
     };
 
-    let res = test_value.respond_to(&req).await;
+    let res: HttpResponse = test_value.respond_to(&req);
 
-    assert!(res.is_ok());
-
-    let res = to_bytes(res.expect("Response should be present").into_body())
+    let res = to_bytes(res.into_body())
         .await
         .unwrap();
     assert_eq!(res, &b"{\"name\":\"Test\"}"[..]);
