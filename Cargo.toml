@@ -1,6 +1,6 @@
 [package]
 name = "actix-json-responder"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2018"
 authors = ["Ana Bujan <ana@eisberg-labs.com>"]
 readme = "README.md"
@@ -16,8 +16,10 @@ proc-macro = true
 
 [dependencies]
 syn = "1.0.70"
+quote = "1.0.23"
 
 [dev-dependencies]
-actix-web = { version = "4.0.1" }
+actix-rt = { version = "2.7.0"}
+actix-web = { version = "4.2.1" }
 serde_json = { version = "1.0" }
 serde = { version = "1", features = ["derive"] }
