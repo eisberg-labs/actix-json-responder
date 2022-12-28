@@ -10,7 +10,7 @@ use syn::{parse_macro_input, DeriveInput};
 #[proc_macro_derive(JsonResponder)]
 pub fn responder_derive(input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as DeriveInput);
-    let ident = input.ident.clone();
+    let ident = input.ident;
 
     (quote! {
         impl actix_web::Responder for #ident {
