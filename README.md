@@ -1,6 +1,7 @@
 # Actix Json Responder [![Continuous Integration](https://github.com/eisberg-labs/actix-json-responder/actions/workflows/ci.yml/badge.svg)](https://github.com/eisberg-labs/actix-json-responder/actions/workflows/ci.yml) [![license-badge][]][license] [![rust-version-badge][]][rust-version]
 
-A procedural macro to reduce json response boilerplate on actix projects.
+A procedural macro to reduce json response boilerplate on actix projects.  
+[https://www.amarjanica.com/lets-refactor-a-simple-procedural-macro-in-rust](https://www.amarjanica.com/lets-refactor-a-simple-procedural-macro-in-rust).
 
 # Usage
 Implementing struct has to be serializable. Example shown in tests and below:
